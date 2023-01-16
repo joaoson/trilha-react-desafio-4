@@ -28,6 +28,17 @@ const Login = () => {
     reValidateMode: "onChange",
   });
 
+  console.log(isValid)
+  
+  let  allowSubmit = (event: any)=> {
+    if(!isValid){
+      event.preventDefault()
+    }
+    else{
+      console.log("mensagem enviada")
+    }
+  }
+
   return (
     <Container>
       <LoginContainer>
@@ -49,7 +60,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button  title="Entrar" onClick={allowSubmit} />
         </Column>
       </LoginContainer>
     </Container>
